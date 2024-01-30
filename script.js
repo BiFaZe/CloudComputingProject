@@ -1,6 +1,9 @@
 // ------------------- My code -------------------------------
 //document.getElementById('signup-button').addEventListener('click', () => { Amplify.Auth.federatedSignIn();});
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports';
 
+Amplify.configure(awsconfig);
 
 window.onload = function () {
 

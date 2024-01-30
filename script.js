@@ -14,6 +14,28 @@ window.onload = function () {
     var secretAccessKey = AWS.config.credentials.secretAccessKey;
     var sessionToken = AWS.config.credentials.sessionToken;
   });
+	
+	// Configure Amplify
+	Amplify.configure({
+		Auth: {
+			region: 'us-east-1',
+			userPoolId: 'us-east-1_lCzaTHi5B',
+			userPoolWebClientId: '7uiebttmj36esfm5tqqs9uk2nj',
+			oauth: {
+				domain: 'https://gamelibrary.auth.us-east-1.amazoncognito.com',
+				scope: ['email', 'openid'],
+				redirectSignIn: 'https://main.dy2pwjz519kfz.amplifyapp.com',
+				redirectSignOut: 'https://main.dy2pwjz519kfz.amplifyapp.com',
+				responseType: 'code'
+			}
+		}
+	});
+
+	// Add event listener to the sign in button
+	document.getElementById('signup-button').addEventListener('click', () => {
+		Amplify.Auth.federatedSignIn();
+	});
+  
   var ddb = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" });
   var params = {
     TableName: "MobyGameDataset",

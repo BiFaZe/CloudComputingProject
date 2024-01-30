@@ -17,40 +17,6 @@
       <button id="signup-button">Sign Up</button>
     </div>
 
-	<script>
-		AWS.config.update({ region: "us-east-1" });
-		AWS.config.region = "us-east-1";
-		AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-			IdentityPoolId: "us-east-1:cd82df96-1cd3-456e-831d-42736979acfc",
-		});
-		AWS.config.credentials.get(function () {
-		var accessKeyId = AWS.config.credentials.accessKeyId;
-		var secretAccessKey = AWS.config.credentials.secretAccessKey;
-		var sessionToken = AWS.config.credentials.sessionToken;
-		});
-	
-		// Configure Amplify
-        Amplify.configure({
-            Auth: {
-                region: 'us-east-1',
-                userPoolId: 'us-east-1_lCzaTHi5B',
-                userPoolWebClientId: '7uiebttmj36esfm5tqqs9uk2nj',
-                oauth: {
-                    domain: 'https://gamelibrary.auth.us-east-1.amazoncognito.com',
-                    scope: ['email', 'openid'],
-                    redirectSignIn: 'https://main.dy2pwjz519kfz.amplifyapp.com',
-                    redirectSignOut: 'https://main.dy2pwjz519kfz.amplifyapp.com',
-                    responseType: 'code'
-                }
-            }
-        });
-
-        // Add event listener to the sign in button
-        document.getElementById('signup-button').addEventListener('click', () => {
-            Amplify.Auth.federatedSignIn();
-        });
-    </script>
-
     <div id="content">
       <div id="loading" style="display: none">
         <div class="spinner"></div>
@@ -60,5 +26,6 @@
       <div class="grid-container"></div>
       <p id="no-results" style="display: none">No matched results.</p>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

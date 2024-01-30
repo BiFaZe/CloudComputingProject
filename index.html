@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.0.min.js"></script>
+	<script src="https://unpkg.com/aws-amplify@3.x.x/dist/aws-amplify.min.js"></script>
   </head>
   <body>
     <div class="header">
@@ -15,6 +16,29 @@
       </div>
       <button id="signup-button">Sign Up</button>
     </div>
+
+	<script>
+		// Configure Amplify
+        Amplify.configure({
+            Auth: {
+                region: 'us-east-1',
+                userPoolId: 'us-east-1_lCzaTHi5B',
+                userPoolWebClientId: '7uiebttmj36esfm5tqqs9uk2nj',
+                oauth: {
+                    domain: 'https://gamelibrary.auth.us-east-1.amazoncognito.com',
+                    scope: ['email', 'openid'],
+                    redirectSignIn: 'https://main.dy2pwjz519kfz.amplifyapp.com',
+                    redirectSignOut: 'https://main.dy2pwjz519kfz.amplifyapp.com',
+                    responseType: 'code'
+                }
+            }
+        });
+
+        // Add event listener to the sign in button
+        document.getElementById('signup-button').addEventListener('click', () => {
+            Amplify.Auth.federatedSignIn();
+        });
+    </script>
 
     <div id="content">
       <div id="loading" style="display: none">

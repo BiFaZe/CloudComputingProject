@@ -1,6 +1,6 @@
 // ------------------- My code -------------------------------
-document.getElementById('signup-button').addEventListener('click', function() {
-    location.href='https://gamelibrary.auth.us-east-1.amazoncognito.com/oauth2/authorize?response_type=code&client_id=7uiebttmj36esfm5tqqs9uk2nj&redirect_uri=https://gamelibrarycc.altervista.org/dashboard/';
+document.getElementById('logout-button').addEventListener('click', function() {
+    location.href='https://gamelibrarycc.altervista.org/';
 });
 
 
@@ -117,5 +117,5 @@ window.onload = function () {
       contentDiv.classList.remove("loading");
       contentDiv.classList.add("loaded");
     });
-  }, 10000);
+  }, 1500);
 };

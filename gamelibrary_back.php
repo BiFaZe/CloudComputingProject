@@ -1,6 +1,8 @@
 <?php
 // backend.php
 
+header('Access-Control-Allow-Origin: *');
+
 require 'vendor/autoload.php'; // Include the Composer autoload file
 
 use Aws\DynamoDb\DynamoDbClient;

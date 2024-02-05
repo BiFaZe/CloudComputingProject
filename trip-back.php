@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 
 // Allow from any origin
 if (isset($_SERVER['HTTP_ORIGIN'])) {
